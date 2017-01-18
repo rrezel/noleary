@@ -13,7 +13,7 @@ Features
 --------------------------
 
 * Detects instances of Kevin O'Leary on web pages, warning users of the horror they may contain.
-* Attempts to identify semantically sections of the page likely to contain Donald Trump and removes them from the page.
+* Attempts to identify semantically sections of the page likely to contain Kevin O'Leary and removes them from the page.
 * Sensitivity settings to customize the aggressiveness of the filter - remove single references, chunks or the entire page.
 
 
