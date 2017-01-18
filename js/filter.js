@@ -19,7 +19,7 @@ function filterMild() {
 
 function filterDefault () {
 	console.log("Filtering O'Leary with Default filter...");
-	return $(selector).filter(":only-child").closest('div');
+	return $(selector).closest('div');
 }
 
 function filterVindictive() {
