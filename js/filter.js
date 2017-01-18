@@ -17,9 +17,29 @@ function filterMild() {
 	return $(selector).filter("h1,h2,h3,h4,h5,p,span,li");
 }
 
-function filterDefault () {
+function filterSmart() {
 	console.log("Filtering O'Leary with Default filter...");
-	return $(selector).filter('h1,h2,h3,h4,h5,p,span,li').parent().parent();
+	elem = $(selector).filter('h1,h2,h3,h4,h5,p,span,li');
+	
+	var noparent = ['thestar.com','twitter.com'],
+	length = noparent.length;
+	while(length--) {
+	   if (document.URL.indexOf(noparent[length])!=-1) {
+		   return elem;
+	   }
+	}	
+	
+	var twoparents = ['reddit.com','news.google.ca'],
+	length = twoparents.length;
+	while(length--) {
+	   if (document.URL.indexOf(twoparents[length])!=-1) {
+		   return elem.parent().parent();
+	   }
+	}
+		
+
+	return elem.parent();
+
 }
 
 function filterVindictive() {
@@ -32,8 +52,8 @@ function getElements(filter) {
 	   return filterMild();
    } else if (filter == "vindictive") {
 	   return filterVindictive();
-   } else if (filter == "aggro") {
-	   return filterDefault();
+   } else if (filter == "smart") {
+	   return filterSmart();
    } else {
      return filterMild();
    }
@@ -49,7 +69,7 @@ function filterElements(elements) {
 if (search) {
    console.log("Kevin O'Leary found on page! - Searching for elements...");
    chrome.storage.sync.get({
-     filter: 'aggro',
+     filter: 'smart',
    }, function(items) {
 	   console.log("Filter setting stored is: " + items.filter);
 	   elements = getElements(items.filter);
