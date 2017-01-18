@@ -8,7 +8,7 @@
 var regex = /Leary/i;
 var search = regex.exec(document.body.innerText);
 
-var selector = ":contains('Leary'), :contains('Leary'), :contains('Leary')";
+var selector = ":contains('Leary'), :contains('LEARY'), :contains('leary')";
 
 
 // Functions
