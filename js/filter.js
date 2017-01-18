@@ -1,29 +1,29 @@
 /*
- * Trump Filter - Content Script
+ * NoLeary - Content Script
  *
  * This is the primary JS file that manages the detection and filtration of Donald Trump from the web page.
  */
 
 // Variables
-var regex = /Trump/i;
+var regex = /Leary/i;
 var search = regex.exec(document.body.innerText);
 
-var selector = ":contains('Trump'), :contains('TRUMP'), :contains('trump')";
+var selector = ":contains('Leary'), :contains('Leary'), :contains('Leary')";
 
 
 // Functions
 function filterMild() {
-	console.log("Filtering Trump with Mild filter...");
+	console.log("Filtering O'Leary with Mild filter...");
 	return $(selector).filter("h1,h2,h3,h4,h5,p,span,li");
 }
 
 function filterDefault () {
-	console.log("Filtering Trump with Default filter...");
+	console.log("Filtering O'Leary with Default filter...");
 	return $(selector).filter(":only-child").closest('div');
 }
 
 function filterVindictive() {
-	console.log("Filtering Trump with Vindictive filter...");
+	console.log("Filtering O'Leary with Vindictive filter...");
 	return $(selector).filter(":not('body'):not('html')");
 }
 
@@ -47,7 +47,7 @@ function filterElements(elements) {
 
 // Implementation
 if (search) {
-   console.log("Donald Trump found on page! - Searching for elements...");
+   console.log("Kevin O'Leary found on page! - Searching for elements...");
    chrome.storage.sync.get({
      filter: 'aggro',
    }, function(items) {
