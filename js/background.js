@@ -1,13 +1,13 @@
 function onMessage(request, sender, sendResponse) {
   if (request.method == "saveStats") { 
     console.log("Storing stats...");
-    console.log ("Adding " + request.trumps + " Trumps to stats.");
+    console.log ("Adding " + request.olearies + " O'Leary to stats.");
     chrome.storage.sync.get({
-      trumps: 0,
+      olearies: 0,
       pages: 0
     }, function(items) {
       chrome.storage.sync.set({
-        trumps: items.trumps + request.trumps,
+        trumps: items.olearies + request.olearies,
         pages: items.pages + 1
       });
     });
