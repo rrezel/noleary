@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "NoLeary",
-  "version": "1.1.1",
+  "version": "0.0.1",
   "description": "Keep the Internet O'Leary free.",
   "page_action" :
   {
