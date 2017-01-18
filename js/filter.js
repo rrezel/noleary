@@ -19,7 +19,7 @@ function filterMild() {
 
 function filterDefault () {
 	console.log("Filtering O'Leary with Default filter...");
-	return $(selector).closest('div');
+	return $(selector).filter('h1,h2,h3,h4,h5,p,span,li').parent().parent();
 }
 
 function filterVindictive() {
