@@ -79,6 +79,17 @@ function filterVindictive() {
 	return $(selector).filter(":not('body'):not('html')");
 }
 
+function getElements(filter) {
+   if (filter == "mild") {
+	   return filterMild();
+   } else if (filter == "vindictive") {
+	   return filterVindictive();
+   } else if (filter == "smart") {
+	   return filterSmart();
+   } else {
+     return filterMild();
+   }
+}
 
 function filterElements(elems) {
 	console.log("Elements to filter: ", elems);
