@@ -21,57 +21,19 @@ function filterMild() {
 }
 
 function filterSmart() {
-	console.log("Filtering O'Leary with Default filter...");
+	console.log("Filtering O'Leary with Smart filter...");
+	
 	elems = $(selector).filter('a,h1,h2,h3,h4,h5,p,span,li');
 	
-	elemList = [];
-	console.log(elems);
-	
-	var parents=2;
-	for (var key in sites) {
-		if (sites.hasOwnProperty(key)) {
-			if (document.URL.indexOf(key)!=-1) {
-				parents=sites[key];
-			}
-		}
+	if (document.URL.includes('news.google.ca')) {
+		elems = elems.add($(selector).filter('a,h1,h2,h3,h4,h5,p,span,li').parents().filter('.blended-wrapper'));
+	} else if (document.URL.includes('reddit.com')) {
+		elems = elems.add($(selector).filter('a,h1,h2,h3,h4,h5,p,span,li').parents().filter('.link'));
+	} else if (document.URL.includes('theglobeandmail.com')) {
+		elems = elems.add($(selector).filter('a,h1,h2,h3,h4,h5,p,span,li').parents().filter('article'));
 	}
 	
-	console.log("Parents "+parents);
-	var elemsLength = elems.length;		
-	for (var i = 0; i < elemsLength; i++) {
-		elem = elems[i];
-		console.log(elem);
-		if (parents==2) {
-			elemList.push(elem.parentNode.parentNode);
-		} else if (parents==1) {
-			elemList.push(elem.parentNode);
-		} else {
-			elemList.push(elem);
-		}
-	}
-	
-	return $(elemList);
-	/*
-	var noparent = ['thestar.com','twitter.com'],
-	length = noparent.length;
-	while(length--) {
-	   if (document.URL.indexOf(noparent[length])!=-1) {
-		   return elems;
-	   }
-	}	
-	
-	var twoparents = ['reddit.com','news.google.ca'],
-	length = twoparents.length;
-	while(length--) {
-	   if (document.URL.indexOf(twoparents[length])!=-1) {
-		   return elem.parent().parent();
-	   }
-	}
-		
-
-	return elem.parent();
-	*/ 
-
+	return elems;
 }
 
 function filterVindictive() {
