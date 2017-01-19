@@ -29,9 +29,14 @@ function filterSmart() {
 		elems = elems.add($(selector).filter('a,h1,h2,h3,h4,h5,p,span,li').parents().filter('.blended-wrapper'));
 	} else if (document.URL.includes('reddit.com')) {
 		elems = elems.add($(selector).filter('a,h1,h2,h3,h4,h5,p,span,li').parents().filter('.link'));
+	} else if (document.URL.includes('facebook.com')) {
+		elems = elems.add($(selector).filter('a,h1,h2,h3,h4,h5,p,span,li').parents().filter('.userContentWrapper'));
 	} else if (document.URL.includes('theglobeandmail.com')) {
 		elems = elems.add($(selector).filter('a,h1,h2,h3,h4,h5,p,span,li').parents().filter('article'));
+	} else if (document.URL.includes('theprovince.com')) {
+		elems = elems.add($(selector).filter('a,h1,h2,h3,h4,h5,p,span,li').parents().filter('.wfull'));
 	}
+	
 	
 	return elems;
 }
