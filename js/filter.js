@@ -26,15 +26,15 @@ function filterSmart() {
 	elems = $(selector).filter('a,h1,h2,h3,h4,h5,p,span,li');
 	
 	if (document.URL.includes('news.google.ca')) {
-		elems = elems.add($(selector).filter('a,h1,h2,h3,h4,h5,p,span,li').parents().filter('.blended-wrapper'));
+		elems = elems.add(elems.parents().filter('.blended-wrapper'));
 	} else if (document.URL.includes('reddit.com')) {
-		elems = elems.add($(selector).filter('a,h1,h2,h3,h4,h5,p,span,li').parents().filter('.link'));
+		elems = elems.add(elems.parents().filter('.link'));
 	} else if (document.URL.includes('facebook.com')) {
-		elems = elems.add($(selector).filter('a,h1,h2,h3,h4,h5,p,span,li').parents().filter('.userContentWrapper'));
+		elems = elems.add(elems.parents().filter('.userContentWrapper'));
 	} else if (document.URL.includes('theglobeandmail.com')) {
-		elems = elems.add($(selector).filter('a,h1,h2,h3,h4,h5,p,span,li').parents().filter('article'));
+		elems = elems.add(elems.parents().filter('article'));
 	} else if (document.URL.includes('theprovince.com')) {
-		elems = elems.add($(selector).filter('a,h1,h2,h3,h4,h5,p,span,li').parents().filter('.wfull'));
+		elems = elems.add(elems.parents().filter('.wfull'));
 	}
 	
 	
